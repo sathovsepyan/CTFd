@@ -29,6 +29,9 @@
 					<a class="nav-link rounded-0" href="#ctftime" role="tab" data-toggle="tab">Time</a>
 				</li>
 				<li class="nav-item">
+					<a class="nav-link rounded-0" href="#importchallenges" role="tab" data-toggle="tab">Import Challenges</a>
+				</li>
+				<li class="nav-item">
 					<a class="nav-link rounded-0" href="#backup" role="tab" data-toggle="tab">Backup</a>
 				</li>
 				<li class="nav-item">
@@ -59,6 +62,8 @@
 				{% include "admin/configs/email.html" %}
 
 				{% include "admin/configs/time.html" %}
+
+				{% include "admin/challenges/import.html" %}
 
 				{% include "admin/configs/backup.html" %}
 			</div>

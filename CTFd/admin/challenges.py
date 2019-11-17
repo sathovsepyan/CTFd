@@ -57,3 +57,10 @@ def challenges_detail(challenge_id):
 @admins_only
 def challenges_new():
     return render_template("admin/challenges/new.html")
+
+    
+@admin.route("/admin/challenges/import", methods=["POST"])
+@admins_only
+def import_challenges():
+    print('importing challenges')
+    return render_template("admin/challenges/new.html")

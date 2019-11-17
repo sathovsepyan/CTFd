@@ -222,6 +222,38 @@ $(function() {
     load_date_values("freeze");
   });
 
+
+  $("#import-challenges-button").click(function(e) {
+    e.preventDefault();
+    var import_file = document.getElementById("import-challenges").files[0];
+    var form_data = new FormData();
+    form_data.append("challenges", import_file);
+    form_data.append("nonce", csrf_nonce);
+
+    var pg = ezpg({
+      width: 0,
+      title: "Upload Progress"
+    });
+
+    $.ajax({
+      url: script_root + "/admin/challenges/import",
+      type: "POST",
+      data: form_data,
+      processData: false,
+      contentType: false,
+      statusCode: {
+        500: function(resp) {
+          console.log(resp.responseText);
+          alert(resp.responseText);
+        }
+      },
+      success: function(data) {
+        alert('success')
+      }
+    });
+  });
+
+
   $("#export-button").click(function(e) {
     e.preventDefault();
     var href = script_root + "/admin/export";
